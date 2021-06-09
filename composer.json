@@ -1,0 +1,35 @@
+{
+    "name": "tlc/report-bundle",
+    "version": "0.1.0",
+    "type": "symfony-bundle",
+    "description": "TechnoLesCom report bundle",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.0",
+        "tecnickcom/tcpdf": "^6.4"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Tlc\\ReportBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tlc\\ReportBundle\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test" : "./vendor/bin/simple-phpunit"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.3.*"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
