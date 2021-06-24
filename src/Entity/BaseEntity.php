@@ -129,17 +129,25 @@ class BaseEntity
         return $time;
     }
 
-
-    static public function percentageOf( int|float $number, int|float $everything, int $decimal = 2 ): float
+    static public function getPeriodFromString($string): DatePeriod
     {
-        return $everything ? round($number / $everything * 100, $decimal) : 0; 
+        $dates = explode('...', $string);
+
+        $start = new \DateTime($dates[0]);
+        $end = new \DateTime($dates[1] ?? '');
+
+        return new DatePeriod($start, new DateInterval('P1D'), $end);
     }
 
-    static public function stringFromPeriod(DatePeriod $period) :string
+    static public function percentageOf(int|float $number, int|float $everything, int $decimal = 2): float
+    {
+        return $everything ? round($number / $everything * 100, $decimal) : 0;
+    }
+
+    static public function stringFromPeriod(DatePeriod $period): string
     {
         $format = $period->include_start_date ? '[%s, %s]' : '(%s, %s]';
         return sprintf($format, $period->start->format(self::DATE_SECOND_FORMAT_DB), $period->end->format(self::DATE_SECOND_FORMAT_DB));
-
     }
     // static public function getPeriodForDay(int $countDay) : DatePeriod
     // {
