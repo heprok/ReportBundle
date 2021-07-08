@@ -6,7 +6,7 @@
     "license": "proprietary",
     "require": {
         "php": ">=8.0",
-        "tecnickcom/tcpdf": "^6.4"
+        "qipsius/tcpdf-bundle": "^2.0"
     },
     "config": {
         "sort-packages": true
