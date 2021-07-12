@@ -129,6 +129,14 @@ class BaseEntity
         return $time;
     }
 
+    static public function getPeriodFrom2DateString(string $startDate, string $endDate = '') : DatePeriod
+    {
+        $start = new \DateTime($startDate);
+        $end = new \DateTime($endDate);
+
+        return new DatePeriod($start, new DateInterval('P1D'), $end);
+    }
+
     static public function getPeriodFromString($string): DatePeriod
     {
         $dates = explode('...', $string);
