@@ -6,6 +6,7 @@ namespace Tlc\ReportBundle\Report;
 
 use Tlc\ReportBundle\Dataset\AbstractDataset;
 use DatePeriod;
+use Tlc\ReportBundle\Entity\Column;
 
 abstract class AbstractReport
 {
@@ -45,6 +46,12 @@ abstract class AbstractReport
         $this->period = $period;
         $this->peoples = $peoples;
         $this->sqlWhere = $sqlWhere;
+        $this->init();
+    }
+
+    public function getMainDataset() : AbstractDataset
+    {  
+        return $this->datasets[0]; 
     }
 
     public function addDataset(AbstractDataset $dataset): self
@@ -85,7 +92,7 @@ abstract class AbstractReport
     }
 
     /**
-     * @return string[] Return an array string
+     * @return Column[] Return an array string
      */
     public function getLabels(): array
     {

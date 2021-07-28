@@ -28,6 +28,14 @@ class PdfDataset extends AbstractDataset
         $this->data = [];
     }
 
+    /**
+     * @return Column[]
+     */
+    public function getColumns(): array
+    {
+        return $this->columns;
+    }
+
     public function getKeysSubTotal(): array
     {
         return $this->keysSubTotal;

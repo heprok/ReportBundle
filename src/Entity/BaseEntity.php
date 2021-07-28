@@ -137,6 +137,14 @@ class BaseEntity
         return new DatePeriod($start, new DateInterval('P1D'), $end);
     }
 
+    static public function getPeriodFromArray(array $period) : DatePeriod
+    {
+        $start = new \DateTime($period['start']);
+        $end = new \DateTime($period['end'] ?? '');
+
+        return new DatePeriod($start, new DateInterval('P1D'), $end);
+    }
+
     static public function getPeriodFromString($string): DatePeriod
     {
         $dates = explode('...', $string);
