@@ -14,6 +14,7 @@ abstract class AbstractReportController extends AbstractController
     protected \DatePeriod $period;
     protected array $sqlWhere = [];
     protected array $peoples = [];
+    protected string $type = ''; 
 
     public function __construct(PeopleRepository $peopleRepository)
     {
