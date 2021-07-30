@@ -7,13 +7,13 @@ namespace Tlc\ReportBundle\Dataset;
 final class ChartDataset extends AbstractDataset
 {
     public function __construct(
-        private string $label,
-        private string $backgroundColor = '#007bff',
-        private string $borderColor = '#000',
-        private string $pointBorderColor = 'white',
-        private string $pointBackgroundColor = 'white',
-        private int $borderWidth = 1,
-        private bool $fill = false,
+        // private string $label,
+        // private string $backgroundColor = '#007bff',
+        // private string $borderColor = '#000',
+        // private string $pointBorderColor = 'white',
+        // private string $pointBackgroundColor = 'white',
+        // private int $borderWidth = 1,
+        // private bool $fill = false,
     ) {
         $this->data = [];
     }
@@ -21,13 +21,13 @@ final class ChartDataset extends AbstractDataset
     public function __serialize(): array
     {
         return [
-            'label' => $this->getLabel(),
-            'fill' => $this->getFill(),
-            'borderColor' => $this->getBorderColor(),
-            'backgroundColor' => $this->getBackgroundColor(),
-            'pointBorderColor' => $this->getPointBorderColor(),
-            'pointBackgroundColor' => $this->getPointBackgroundColor(),
-            'borderWidth' => $this->getBorderWidth(),
+            // 'label' => $this->getLabel(),
+            // 'fill' => $this->getFill(),
+            // 'borderColor' => $this->getBorderColor(),
+            // 'backgroundColor' => $this->getBackgroundColor(),
+            // 'pointBorderColor' => $this->getPointBorderColor(),
+            // 'pointBackgroundColor' => $this->getPointBackgroundColor(),
+            // 'borderWidth' => $this->getBorderWidth(),
             'data' => $this->getData(),
         ];
     }
@@ -35,6 +35,11 @@ final class ChartDataset extends AbstractDataset
     public function setData(array $data)
     {
         $this->data = $data;
+    }
+
+    public function appendData($data)
+    {
+        $this->data[] = $data;
     }
 
     public function getBackgroundColor(): string
