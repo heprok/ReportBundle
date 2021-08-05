@@ -7,7 +7,7 @@ namespace Tlc\ReportBundle\Dataset;
 final class ChartDataset extends AbstractDataset
 {
     public function __construct(
-        // private string $label,
+        private ?string $name = null,
         // private string $backgroundColor = '#007bff',
         // private string $borderColor = '#000',
         // private string $pointBorderColor = 'white',
@@ -21,7 +21,7 @@ final class ChartDataset extends AbstractDataset
     public function __serialize(): array
     {
         return [
-            // 'label' => $this->getLabel(),
+            'name' => $this->getName(),
             // 'fill' => $this->getFill(),
             // 'borderColor' => $this->getBorderColor(),
             // 'backgroundColor' => $this->getBackgroundColor(),
@@ -102,9 +102,9 @@ final class ChartDataset extends AbstractDataset
         return $this;
     }
 
-    public function getLabel(): string
+    public function getName(): ?string
     {
-        return $this->label;
+        return $this->name;
     }
 
     public function setLabel(string $label): self

@@ -90,6 +90,24 @@ class BaseEntity
         return $period;
     }
 
+    static public function getWorkPeriodForPeriod(DatePeriod $period): DatePeriod
+    {
+        $startTime = $period->getStartDate();
+        $intervalStartDay = self::getStartDayInterval();
+        $startTime = $startTime->format('H') >= $intervalStartDay->h ? $startTime : $startTime->sub(new DateInterval('P1D'));
+
+        $startTime->setTime($intervalStartDay->h, $intervalStartDay->m, $intervalStartDay->s);
+
+        $endTime = $period->getEndDate();
+
+        $endTime = $endTime->format('H') <= $intervalStartDay->h ? $endTime : $endTime->add(new DateInterval('P1D'));
+
+        $endTime->setTime($intervalStartDay->h, $intervalStartDay->m, $intervalStartDay->s);
+        $period = new DatePeriod($startTime, new DateInterval('P1D'), $endTime);
+
+        return $period;
+    }
+
 
     /**
      * Подсчитывает кол-во досок в массиве
