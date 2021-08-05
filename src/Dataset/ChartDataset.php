@@ -8,6 +8,7 @@ final class ChartDataset extends AbstractDataset
 {
     public function __construct(
         private ?string $name = null,
+        private ?string $type = null
         // private string $backgroundColor = '#007bff',
         // private string $borderColor = '#000',
         // private string $pointBorderColor = 'white',
@@ -22,6 +23,7 @@ final class ChartDataset extends AbstractDataset
     {
         return [
             'name' => $this->getName(),
+            'type' => $this->getType(),
             // 'fill' => $this->getFill(),
             // 'borderColor' => $this->getBorderColor(),
             // 'backgroundColor' => $this->getBackgroundColor(),
@@ -64,6 +66,10 @@ final class ChartDataset extends AbstractDataset
         $this->borderColor = $borderColor;
 
         return $this;
+    }
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 
     public function getPointBorderColor(): string
