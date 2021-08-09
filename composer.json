@@ -1,6 +1,6 @@
 {
     "name": "tlc/report-bundle",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "type": "symfony-bundle",
     "description": "TechnoLesCom report bundle",
     "license": "proprietary",
@@ -29,6 +29,5 @@
             "allow-contrib": false,
             "require": "5.3.*"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
