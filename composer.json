@@ -30,6 +30,5 @@
             "require": "5.3.*"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "minimum-stability": "dev"
 }
